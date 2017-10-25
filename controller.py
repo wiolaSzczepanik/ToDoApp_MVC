@@ -33,15 +33,16 @@ class Controller:
         item_data.update({"ksiazka":"przeczytać książke do końca tygodnia"})
         item_data.update({"kwiaty":"podlać wszytskie kwiaty"})
         item_data.update({"zakupy":"przygotować liste zakupów"})
+        # print(item_data)
+
+    def modify_item(self):
         print(item_data)
 
-    def modify_item():
+
+    def delete_item_from_app(self):
         pass
 
-    def delete_item_from_app():
-        pass
-
-    def mark_item_as_done():
+    def mark_item_as_done(self):
         pass
 # x = Controller()
 # x.add_item_to_app()

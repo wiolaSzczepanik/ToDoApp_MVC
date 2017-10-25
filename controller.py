@@ -1,4 +1,5 @@
 from model import Model
+from view import View
 
 
 class Controller:
@@ -29,23 +30,26 @@ class Controller:
 
         item_data = Model.todo_items
         item_data.update({name_for_task:description_for_task})
-#  do testów
-        # item_data.update({"ksiazka":"przeczytać książke do końca tygodnia"})
-        # item_data.update({"kwiaty":"podlać wszytskie kwiaty"})
-        # item_data.update({"zakupy":"przygotować liste zakupów"})
         return item_data
 
     def modify_item(self):
-        print(item_data)
+        item_data = Model.todo_items
+        name = input("Write name to change: ")
+        if name in item_data:
+            new_name = input("write new name: ")
+            item_data[new_name] = item_data[name]
+            del item_data[name]
 
+    def delete_item(self):
+        item_data = Model.todo_items
+        while True:
+            task_name_to_del = input("Write task name which you want to delete: ")
+            if task_name_to_del not in item_data:
+                print("Try again")
+                continue
+            else:
+                del item_data[task_name_to_del]
+                break
 
-    def delete_item_from_app(self):
-        pass
-
-    def mark_item_as_done(self):
-        pass
-# x = Controller()
-# x.add_item_to_app()
-# print(x)
-
-# task = Controller.add_item_to_app("lalal", "dhashdjashd")
+    def mark_item(self):
+        self.is_done = True

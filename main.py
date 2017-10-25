@@ -1,10 +1,20 @@
 from controller import Controller
 from view import View
-from model import Model
+# from model import Model
 import os
+
+
+def clear_screen():
+    os.system("clear")
+
+
 def main():
 
+    controller = Controller()
+    view = View()
+
     while True:
+
         print("""
     === MENU ===
     (1) Add item to app
@@ -17,43 +27,21 @@ def main():
      """)
 
         option = input("Select an option: ")
+        clear_screen()
         if option == "1":
-            os.system("clear")
-            add_item()
+            controller.add_item_to_app()
         elif option == "2":
-            os.system("clear")
-            modify_item()
+            controller.modify_item()
         elif option == "3":
-            os.system("clear")
-            delete_item_from_app()
+            controller.delete_item()
         elif option == "4":
-            os.system("clear")
-            mark_item_as_done()
+            controller.mark_item()
         elif option == "5":
-            os.system("clear")
-            display_table_id_and_name()
+            view.display_item_list()
         elif option == "6":
-            os.system("clear")
-            display_table_with_details()
+            view.display_item_details()
         else:
             break
-
-
-def add_item():
-    task = Controller()
-    task.add_item_to_app()
-
-def modify_item():
-    task = Controller()
-    task.modify_item()
-
-def display_table_id_and_name():
-    table = View()
-    table.display_item_list()
-
-def display_table_with_details():
-    table = View()
-    table.display_item_details()
 
 
 main()

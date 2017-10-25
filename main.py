@@ -1,3 +1,7 @@
+from controller import Controller
+from view import View
+from model import Model
+import os
 def main():
 
     while True:
@@ -15,7 +19,7 @@ def main():
         option = input("Select an option: ")
         if option == "1":
             os.system("clear")
-            add_item_to_app()
+            add_item()
         elif option == "2":
             os.system("clear")
             modify_item()
@@ -27,10 +31,29 @@ def main():
             mark_item_as_done()
         elif option == "5":
             os.system("clear")
-            display_item_list()
+            display_table_id_and_name()
         elif option == "6":
             os.system("clear")
-            display_item_details()
+            display_table_with_details()
         else:
             break
+
+
+def add_item():
+    task = Controller()
+    task.add_item_to_app()
+
+def modify_item():
+    task = Controller()
+    task.modify_item()
+
+def display_table_id_and_name():
+    table = View()
+    table.display_item_list()
+
+def display_table_with_details():
+    table = View()
+    table.display_item_details()
+
+
 main()

@@ -36,7 +36,14 @@ def main():
             display_item_details()
         else:
             break
+
+
 def add_item():
     task = Controller()
     task.add_item_to_app()
+
+def modify_item():
+    task = Controller()
+    task.modify_item()
+    
 main()

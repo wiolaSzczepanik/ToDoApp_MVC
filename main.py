@@ -1,4 +1,5 @@
 from controller import Controller
+from view import View
 from model import Model
 import os
 def main():
@@ -45,5 +46,10 @@ def add_item():
 def modify_item():
     task = Controller()
     task.modify_item()
-    
+
+def display_item_list():
+    table = View()
+    table.display_item_list()
+
+
 main()

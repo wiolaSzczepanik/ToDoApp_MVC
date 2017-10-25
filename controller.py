@@ -30,10 +30,10 @@ class Controller:
         item_data = Model.todo_items
         item_data.update({name_for_task:description_for_task})
 #  do testów
-        item_data.update({"ksiazka":"przeczytać książke do końca tygodnia"})
-        item_data.update({"kwiaty":"podlać wszytskie kwiaty"})
-        item_data.update({"zakupy":"przygotować liste zakupów"})
-        # print(item_data)
+        # item_data.update({"ksiazka":"przeczytać książke do końca tygodnia"})
+        # item_data.update({"kwiaty":"podlać wszytskie kwiaty"})
+        # item_data.update({"zakupy":"przygotować liste zakupów"})
+        return item_data
 
     def modify_item(self):
         print(item_data)

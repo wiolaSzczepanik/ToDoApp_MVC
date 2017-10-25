@@ -1,4 +1,5 @@
 from model import Model
+from view import View
 
 
 class Controller:
@@ -36,11 +37,28 @@ class Controller:
         return item_data
 
     def modify_item(self):
-        print(item_data)
+        # View.display_item_details(table)
+        # item_data = Model.todo_items
+        # while True:
+        #     chosen_element_to_modify = input("If you want modify NAME press N, to modify DESCRIPTION press D: ")
+        #     if chosen_element_to_modify == "N":
+        #         name_to_change = input("Write name task which you want to change: ")
 
-
-    def delete_item_from_app(self):
         pass
+
+
+    def delete_item(self):
+        item_data = Model.todo_items
+        while True:
+            task_name_to_del = input("Write task name which you want to delete: ")
+            if task_name_to_del not in item_data:
+                print("Try again")
+                continue
+            else:
+                del item_data[task_name_to_del]
+                break
+
+
 
     def mark_item_as_done(self):
         pass

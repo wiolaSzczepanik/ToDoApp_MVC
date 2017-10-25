@@ -44,8 +44,9 @@ def add_item():
     task.add_item_to_app()
 
 def modify_item():
-    task = Controller()
-    task.modify_item()
+    # task = Controller()
+    # task.modify_item()
+    pass
 
 def display_table_id_and_name():
     table = View()
@@ -54,6 +55,11 @@ def display_table_id_and_name():
 def display_table_with_details():
     table = View()
     table.display_item_details()
+
+def delete_item_from_app():
+    task = Controller()
+    task.delete_item()
+
 
 
 main()

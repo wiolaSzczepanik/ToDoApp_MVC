@@ -3,8 +3,11 @@ from prettytable import PrettyTable
 
 class View:
 
+    def __init__(self, model):
+        self.model = model
+
     def display_item_list(self):
-        data_to_display = Model.todo_items
+        data_to_display = self.model.todo_items
 
         task_table = PrettyTable([" id ", " Name"])
         index = 0
@@ -15,7 +18,7 @@ class View:
         print(task_table)
 
     def display_item_details(self):
-        data_to_display = Model.todo_items
+        data_to_display = self.model.todo_items
 
         task_table = PrettyTable([" id ", " Name", "Description"])
         index = 0

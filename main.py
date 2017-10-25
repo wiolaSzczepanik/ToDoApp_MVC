@@ -1,6 +1,6 @@
 from controller import Controller
 from view import View
-# from model import Model
+from model import Model
 import os
 
 
@@ -9,9 +9,9 @@ def clear_screen():
 
 
 def main():
-
-    controller = Controller()
-    view = View()
+    model = Model()
+    controller = Controller(model) #przekazuje referencje do modelu
+    view = View(model)
 
     while True:
 

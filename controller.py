@@ -4,10 +4,10 @@ from view import View
 
 class Controller:
 
-    def __init__(self):
-        # self.name = name
-        # self.description = description
+    def __init__(self, model):
+        # self. item_data = Model().todo_items
         self.is_done = False
+        self.model = model
 
     def add_item_to_app(self):
         """ Method adds new task to dictionary"""
@@ -28,12 +28,13 @@ class Controller:
             else:
                 break
 
-        item_data = Model.todo_items
-        item_data.update({name_for_task:description_for_task})
-        return item_data
+        # item_data = Model().todo_items
+        self.model.todo_items.update({name_for_task:description_for_task})
+        print(self.model.todo_items)
+        return self.model.todo_items
 
     def modify_item(self):
-        item_data = Model.todo_items
+        item_data = self.model.todo_items
         name = input("Write name to change: ")
         if name in item_data:
             new_name = input("write new name: ")
@@ -41,7 +42,7 @@ class Controller:
             del item_data[name]
 
     def delete_item(self):
-        item_data = Model.todo_items
+        item_data = self.model.todo_items
         while True:
             task_name_to_del = input("Write task name which you want to delete: ")
             if task_name_to_del not in item_data:

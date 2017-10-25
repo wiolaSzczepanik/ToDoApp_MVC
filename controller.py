@@ -1,4 +1,5 @@
 from model import Model
+from view import View
 
 
 class Controller:
@@ -36,7 +37,8 @@ class Controller:
         return item_data
 
     def modify_item(self):
-        print(item_data)
+        View.display_item_details(table)
+        # print(table)
 
 
     def delete_item_from_app(self):

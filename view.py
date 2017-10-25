@@ -12,7 +12,7 @@ class View:
             task_table.add_row([index, key])
             index += 1
 
-        print(task_table)
+        return(task_table)
 
     def display_item_details(self):
         data_to_display = Model.todo_items
@@ -24,7 +24,7 @@ class View:
 
             index += 1
 
-        print(task_table)
+        return(task_table)
 
 # tab = View()
 # tab.display_item_list()

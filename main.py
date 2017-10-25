@@ -44,16 +44,18 @@ def add_item():
     task.add_item_to_app()
 
 def modify_item():
-    task = Controller()
-    task.modify_item()
+    table = View()
+    print(table.display_item_details())
+    # task = Controller()
+    # task.modify_item()
 
 def display_table_id_and_name():
     table = View()
-    table.display_item_list()
+    print(table.display_item_list())
 
 def display_table_with_details():
     table = View()
-    table.display_item_details()
+    print(table.display_item_details())
 
 
 main()

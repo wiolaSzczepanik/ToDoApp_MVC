@@ -1,3 +1,6 @@
+from controller import Controller
+from model import Model
+import os
 def main():
 
     while True:
@@ -15,7 +18,7 @@ def main():
         option = input("Select an option: ")
         if option == "1":
             os.system("clear")
-            add_item_to_app()
+            add_item()
         elif option == "2":
             os.system("clear")
             modify_item()
@@ -33,4 +36,7 @@ def main():
             display_item_details()
         else:
             break
+def add_item():
+    task = Controller()
+    task.add_item_to_app()
 main()

@@ -31,10 +31,10 @@ def main():
             mark_item_as_done()
         elif option == "5":
             os.system("clear")
-            display_item_list()
+            display_table_id_and_name()
         elif option == "6":
             os.system("clear")
-            display_item_details()
+            display_table_with_details()
         else:
             break
 
@@ -47,9 +47,13 @@ def modify_item():
     task = Controller()
     task.modify_item()
 
-def display_item_list():
+def display_table_id_and_name():
     table = View()
     table.display_item_list()
+
+def display_table_with_details():
+    table = View()
+    table.display_item_details()
 
 
 main()

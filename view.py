@@ -15,7 +15,16 @@ class View:
         print(task_table)
 
     def display_item_details(self):
-        pass
+        data_to_display = Model.todo_items
 
-tab = View()
-tab.display_item_list()
+        task_table = PrettyTable([" id ", " Name", "Description"])
+        index = 0
+        for key, value in data_to_display.items():
+            task_table.add_row([index, key, value])
+
+            index += 1
+
+        print(task_table)
+
+# tab = View()
+# tab.display_item_list()

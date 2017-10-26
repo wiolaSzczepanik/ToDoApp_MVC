@@ -13,7 +13,7 @@ class Controller:
         """ Method adds new task to dictionary"""
 
         while True:
-            name_for_task = input("Write name for a task: ")
+            name_for_task = input("Write name for a task: ").lower()
             if len(name_for_task) > 20:
                 print("Too long name. Write again")
                 continue
@@ -21,25 +21,33 @@ class Controller:
                 break
 
         while True:
-            description_for_task = input("Write description for a task: ")
+            description_for_task = input("Write description for a task: ").lower()
             if len(description_for_task) > 150:
                 print("Too long descriptopn. Write again")
                 continue
             else:
                 break
 
-        # item_data = Model().todo_items
         self.model.todo_items.update({name_for_task:description_for_task})
         print(self.model.todo_items)
         return self.model.todo_items
 
     def modify_item(self):
         item_data = self.model.todo_items
-        name = input("Write name to change: ")
-        if name in item_data:
-            new_name = input("write new name: ")
-            item_data[new_name] = item_data[name]
-            del item_data[name]
+        chosen_name_to_change = input("Choose name: ").lower()
+        mode = input("Press N to change NAME, press D to change DESCRIPTION: ").upper()
+        if mode == "N":
+            if chosen_name_to_change in item_data:
+                new_name_for_task = input("Write new name: ")
+                item_data[new_name_for_task] = item_data[chosen_name_to_change]
+                del item_data[chosen_name_to_change]
+        if mode == "D":
+            if chosen_name_to_change in item_data:
+                new_description = input("Write new description: ")
+                item_data[chosen_name_to_change] = new_description
+                print(item_data[chosen_name_to_change])
+
+
 
     def delete_item(self):
         item_data = self.model.todo_items

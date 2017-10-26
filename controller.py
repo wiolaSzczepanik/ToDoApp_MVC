@@ -26,7 +26,6 @@ class Controller:
                 break
 
         self.model.todo_items.update({name_for_task:description_for_task})
-        print(self.model.todo_items, self.is_done)
         return self.model.todo_items, self.is_done
 
     def modify_item(self):
@@ -56,8 +55,4 @@ class Controller:
                 break
 
     def mark_item(self):
-        item_data = self.model.todo_items
-        chosen_name_to_mark = input("Choose name: ").lower()
-        if chosen_name_to_mark in item_data:
-            self.is_done = True
-            return self.is_done
+        self.is_done = True

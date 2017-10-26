@@ -6,6 +6,7 @@ class View:
     def __init__(self, model):
         self.model = model
 
+
     def display_item_list(self):
         data_to_display = self.model.todo_items
 

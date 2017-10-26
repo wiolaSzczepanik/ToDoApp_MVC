@@ -5,13 +5,10 @@ from view import View
 class Controller:
 
     def __init__(self, model):
-        # self. item_data = Model().todo_items
         self.is_done = False
         self.model = model
 
     def add_item_to_app(self):
-        """ Method adds new task to dictionary"""
-
         while True:
             name_for_task = input("Write name for a task: ").lower()
             if len(name_for_task) > 20:
@@ -29,8 +26,8 @@ class Controller:
                 break
 
         self.model.todo_items.update({name_for_task:description_for_task})
-        print(self.model.todo_items)
-        return self.model.todo_items
+        print(self.model.todo_items, self.is_done)
+        return self.model.todo_items, self.is_done
 
     def modify_item(self):
         item_data = self.model.todo_items
@@ -47,8 +44,6 @@ class Controller:
                 item_data[chosen_name_to_change] = new_description
                 print(item_data[chosen_name_to_change])
 
-
-
     def delete_item(self):
         item_data = self.model.todo_items
         while True:
@@ -61,4 +56,8 @@ class Controller:
                 break
 
     def mark_item(self):
-        self.is_done = True
+        item_data = self.model.todo_items
+        chosen_name_to_mark = input("Choose name: ").lower()
+        if chosen_name_to_mark in item_data:
+            self.is_done = True
+            return self.is_done

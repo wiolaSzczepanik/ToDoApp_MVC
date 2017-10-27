@@ -1,11 +1,6 @@
 from model import Model
 from view import View
 
-# class TodoItem:
-#     def __init__(self, description):
-#         self.description = description
-#         self. is_done = False
-
 
 class Controller:
 
@@ -13,25 +8,40 @@ class Controller:
         self.model = model
 
     def add_item_to_app(self):
+
         while True:
-            name_for_task = input("Write name for a task: ").lower()
-            if len(name_for_task) > 20:
+            name_task = input("Write name for a task: ").lower()
+            if len(name_task) > 20:
                 print("Too long name. Write again")
                 continue
             else:
                 break
 
         while True:
-            description_for_task = input("Write description for a task: ").lower()
-            if len(description_for_task) > 150:
+            description = input("Write description for a task: ").lower()
+            if len(description) > 150:
                 print("Too long descriptopn. Write again")
                 continue
             else:
                 break
 
-        self.model.todo_items.update({name_for_task:description_for_task})
+        """obiekty k,urwa"""
+        # item = TodoItem(description)
+        # self.model.todo_items.update({name_task:item.description})
         # print(self.model.todo_items)
+
+        """wersja ze słownikiami"""
+        item = {}
+        is_done = False
+        item.update({"description":description, "is_done":is_done})
+        self.model.todo_items.update({name_task:item})
+        print(self.model.todo_items)
         return self.model.todo_items
+
+        """ Stara wersja"""
+        # self.model.todo_items.update({name_task:description_for_task})
+        # # print(self.model.todo_items)
+        # return self.model.todo_items
 
     def modify_item(self):
         item_data = self.model.todo_items
@@ -58,4 +68,8 @@ class Controller:
                 break
 
     def mark_item(self):
-        self.is_done = True
+        data = self.model.todo_items
+        print(data)
+        name_task = input("Write name task: ")
+        if name_task in data:
+            data[name_task]["is_done"] = True

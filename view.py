@@ -25,13 +25,6 @@ class View:
             index = 0
             task_table = PrettyTable([" id ", " Name", "Description"])
             task_table.add_row([index, name_task, data_to_display[name_task]])
-        # task_table = PrettyTable([" id ", " Name", "Description"])
-        # index = 0
-        # for key, value in data_to_display.items():
-        #     task_table.add_row([index, key, value])
-        #
-        #     index += 1
-
         print(task_table)
 
 # tab = View()

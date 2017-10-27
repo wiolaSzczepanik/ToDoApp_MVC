@@ -10,7 +10,7 @@ def clear_screen():
 
 def main():
     model = Model()
-    controller = Controller(model) #przekazuje referencje do modelu
+    controller = Controller(model)   # przekazuje referencje do modelu
     view = View(model)
 
     while True:
@@ -31,17 +31,23 @@ def main():
         if option == "1":
             controller.add_item_to_app()
         elif option == "2":
+            view.display_item_list()
             controller.modify_item()
         elif option == "3":
+            view.display_item_list()
             controller.delete_item()
         elif option == "4":
+            view.display_item_list()
             controller.mark_item()
         elif option == "5":
             view.display_item_list()
         elif option == "6":
+            view.display_item_list()
             view.display_item_details()
-        else:
+        elif option == "7":
             break
+        else:
+            print("Wrong input. Try again. ")
 
 
 main()

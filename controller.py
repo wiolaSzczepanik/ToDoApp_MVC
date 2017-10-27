@@ -1,4 +1,4 @@
-from model import Model
+from model import *
 from view import View
 
 
@@ -26,17 +26,18 @@ class Controller:
                 break
 
         """obiekty k,urwa"""
-        # item = TodoItem(description)
-        # self.model.todo_items.update({name_task:item.description})
-        # print(self.model.todo_items)
-
-        """wersja ze słownikiami"""
-        item = {}
-        is_done = False
-        item.update({"description":description, "is_done":is_done})
+        item = TodoItem(description)
         self.model.todo_items.update({name_task:item})
         print(self.model.todo_items)
-        return self.model.todo_items
+        return (self.model.todo_items)
+
+        """wersja ze słownikiami"""
+        # item = {}
+        # is_done = False
+        # item.update({"description":description, "is_done":is_done})
+        # self.model.todo_items.update({name_task:item})
+        # print(self.model.todo_items)
+        # return self.model.todo_items
 
         """ Stara wersja"""
         # self.model.todo_items.update({name_task:description_for_task})
@@ -68,8 +69,13 @@ class Controller:
                 break
 
     def mark_item(self):
+        """wersja słownikowa"""
+        # data = self.model.todo_items
+        # print(data)
+        # name_task = input("Write name task: ")
+        # if name_task in data:
+        #     data[name_task]["is_done"] = True
         data = self.model.todo_items
-        print(data)
         name_task = input("Write name task: ")
         if name_task in data:
-            data[name_task]["is_done"] = True
+            data[name_task].is_done = True
